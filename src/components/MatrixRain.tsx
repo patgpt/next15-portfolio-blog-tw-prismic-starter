@@ -1,7 +1,33 @@
+
 'use client'
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-
+/**
+ * MatrixRain component renders a full-screen canvas with a Matrix-style rain animation.
+ * 
+ * The animation consists of falling characters from a predefined set, with a glowing effect
+ * on the first character of each column. The canvas adjusts its size dynamically based on
+ * the window size.
+ * 
+ * @component
+ * 
+ * @example
+ * return (
+ *   <MatrixRain />
+ * )
+ * 
+ * @returns {JSX.Element} The MatrixRain component.
+ * 
+ * @remarks
+ * - The component uses the `useRef` hook to reference the canvas element.
+ * - The `useEffect` hook is used to initialize and handle the animation and window resize events.
+ * - The `motion.div` from `framer-motion` is used to add fade-in and fade-out animations.
+ * - Clicking on the component will reload the window.
+ * 
+ * @dependencies
+ * - `react`
+ * - `framer-motion`
+ */
 const MatrixRain = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const chars = '日ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ012345789ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
