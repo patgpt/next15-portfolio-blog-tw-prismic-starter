@@ -11,7 +11,36 @@ const iconVariants = {
     enter: { scale: 1, opacity: 1, rotate: 0 },
     exit: { scale: 0, opacity: 0, rotate: 180 }
 }
-
+/**
+ * A React component that provides a button to toggle between light and dark themes.
+ * The component uses the `next-themes` library to manage the theme state and `framer-motion`
+ * for animated transitions between the theme icons.
+ *
+ * @component
+ * @example
+ * // Usage in a React component
+ * import { ThemeToggle } from './theme-toggle';
+ * 
+ * function App() {
+ *   return (
+ *     <div>
+ *       <ThemeToggle />
+ *     </div>
+ *   );
+ * }
+ *
+ * @returns {JSX.Element} A button element that toggles between light and dark themes.
+ *
+ * @remarks
+ * The component uses the `useTheme` hook from `next-themes` to get the current theme and
+ * the `useButton` hook from `@react-aria/button` for accessible button behavior.
+ * It also uses `useReducedMotion` from `framer-motion` to respect user preferences for
+ * reduced motion.
+ *
+ * @see {@link https://github.com/pacocoursey/next-themes} for more information on `next-themes`.
+ * @see {@link https://react-spectrum.adobe.com/react-aria/useButton.html} for more information on `useButton`.
+ * @see {@link https://www.framer.com/motion/} for more information on `framer-motion`.
+ */
 export function ThemeToggle() {
     const [mounted, setMounted] = useState(false)
     const prefersReducedMotion = useReducedMotion()
