@@ -3,7 +3,26 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
 import MatrixRain from '@/components/MatrixRain'
-
+/**
+ * Custom 404 Not Found page component with interactive animations.
+ * 
+ * @component
+ * @returns {JSX.Element} A styled 404 page with matrix effect and animations
+ * 
+ * @example
+ * ```tsx
+ * <NotFound />
+ * ```
+ * 
+ * @description
+ * Features:
+ * - Interactive matrix rain effect that can be toggled
+ * - Animated 404 text with glitch effect
+ * - Bouncing emoji character
+ * - Animated text reveal
+ * - Interactive home button with hover/tap animations
+ * - Responsive layout using Tailwind CSS
+ */
 export default function NotFound() {
     const [showMatrix, setShowMatrix] = useState(false)
 
