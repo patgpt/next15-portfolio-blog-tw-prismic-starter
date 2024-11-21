@@ -55,7 +55,7 @@ export function ThemeToggle() {
                         transition={{ duration: 0.3 }}
                         aria-hidden="true"
                     >
-                        <RiMoonFill className="w-4 h-4" />
+                        <RiMoonFill color='yellow' className="w-4 h-4" />
                     </motion.div>
                 ) : (
                     <motion.div
@@ -67,7 +67,7 @@ export function ThemeToggle() {
                         transition={{ duration: 0.3 }}
                         aria-hidden="true"
                     >
-                        <RiSunFill className="w-4 h-4" />
+                        <RiSunFill color='purple' className="w-4 h-4" />
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -4,16 +4,128 @@
 
 @layer base {
   :root {
-    --background: #fafafa;
-    --foreground: #171717;
+    --background: transparent;
+    --foreground: theme(colors.gray.900);
+    --primary-light: theme(colors.yellow.500);
+    --primary-dark: theme(colors.purple.600);
+    --surface: rgba(255, 255, 255, 0.7);
   }
 
   :root[class~="dark"] {
-    --background: #171717;
-    --foreground: #fafafa;
+    --background: transparent;
+    --foreground: theme(colors.gray.100);
+    --primary-light: theme(colors.purple.400);
+    --primary-dark: theme(colors.yellow.500);
+    --surface: rgba(0, 0, 0, 0.7);
+  }
+
+  a {
+    @apply no-underline hover:text-primary-dark transition-colors duration-200;
+  }
+
+  /* Glitch Effect */
+  .glitch {
+    position: relative;
+    color: var(--foreground);
+  }
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.8;
+  }
+  .glitch::before {
+    animation: glitchTop 1s infinite;
+    color: var(--primary-light);
+  }
+  .glitch::after {
+    animation: glitchBottom 1s infinite;
+    color: var(--primary-dark);
+  }
+
+  @keyframes glitchTop {
+    0% {
+      transform: translate(0, 0);
+    }
+    33% {
+      transform: translate(2px, -2px);
+    }
+    66% {
+      transform: translate(-2px, 2px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes glitchBottom {
+    0% {
+      transform: translate(0, 0);
+    }
+    33% {
+      transform: translate(-2px, 2px);
+    }
+    66% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-glass bg-surface-light dark:bg-surface-dark border border-white/20 shadow-lg;
+  }
+
+  .glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_2rem_0_var(--primary-light)];
+  }
+
+  .character {
+    filter: drop-shadow(0 0 0.75rem var(--primary-light));
+    transform-origin: center;
+  }
+
+  canvas {
+    image-rendering: optimizeSpeed;
+    text-rendering: optimizeLegibility;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
+  }
+}
+
+@layer utilities {
+  /* Animation for the 404 Page Character */
+  .animate-walk {
+    @apply transition-transform duration-[3000ms] infinite linear;
+    animation: walk infinite 3s linear;
+  }
+
+  @keyframes walk {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100px);
+    }
   }
 }
 
 body {
-  @apply bg-background text-foreground;
+  @apply min-h-screen bg-gradient-to-tr from-yellow-200 via-white to-purple-300 
+         dark:from-blue-800 dark:via-slate-900 dark:to-purple-800 
+         transition-colors duration-300;
+}
+
+.prose {
+  @apply prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl
+         prose-a:no-underline prose-a:text-primary-light hover:prose-a:text-primary-dark
+         prose-blockquote:glass prose-blockquote:p-4 prose-blockquote:rounded-lg;
 }
