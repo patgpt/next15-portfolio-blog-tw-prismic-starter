@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className="bg-background text-foreground">
         <Providers>
           <Header />
-          <main className="container mx-auto px-4 pt-24 prose dark:prose-invert">
+          <main className="container mx-auto px-2 prose dark:prose-invert max-w-7xl">
             {children}
           </main>
           <Footer />
