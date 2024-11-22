@@ -30,10 +30,10 @@ export function Button({
     };
 
     const variants = {
-        primary: "glass glow border-transparent bg-foreground text-background hover:bg-foreground/90 dark:shadow-primary-light/20",
-        secondary: "glass glow border-foreground/10 hover:bg-foreground/5 dark:border-white/20 dark:hover:bg-white/10",
-        gradient: "glass glow backdrop-blur-md bg-white/20 dark:bg-black/20 border-white/30 dark:border-white/10 text-foreground shadow-xl hover:bg-white/30 dark:hover:bg-black/30",
-        outline: "glass glow border-primary-dark dark:border-primary-light text-foreground hover:bg-primary-dark/10 dark:hover:bg-primary-light/10"
+        primary: "glass border-transparent bg-foreground text-background hover:bg-foreground/90 dark:shadow-primary-light/20",
+        secondary: "glass border-foreground/10 hover:bg-foreground/5 dark:border-white/20 dark:hover:bg-white/10",
+        gradient: "glass backdrop-blur-md bg-white/20 dark:bg-black/20 border-white/30 dark:border-white/10 text-foreground shadow-xl hover:bg-white/30 dark:hover:bg-black/30",
+        outline: "glass border-primary-dark dark:border-primary-light text-foreground hover:bg-primary-dark/10 dark:hover:bg-primary-light/10"
     };
 
     const baseStyles = `rounded-full border border-solid transition-all duration-300 font-medium ${sizes[size]}`;

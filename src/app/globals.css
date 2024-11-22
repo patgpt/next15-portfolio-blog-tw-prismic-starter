@@ -89,7 +89,7 @@
   }
 
   .glow {
-    @apply transition-all duration-300 hover:shadow-[0_0_2rem_0_var(--primary-light)];
+    @apply hover:shadow-[0_0_2rem_0_var(--primary-light)] transition-all duration-300;
   }
 
   .character {
@@ -156,5 +156,22 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 2rem 0 var(--primary-light);
+    }
+    50% {
+      box-shadow: 0 0 3.5rem 0.5rem var(--primary-light);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .glow-hover {
+    @apply hover:animate-hover-glow transition-all duration-300;
   }
 }
