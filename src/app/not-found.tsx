@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
-import MatrixRain from '@/components/MatrixRain'
+import MatrixRain from '@/components/easter-eggs/MatrixRain'
 /**
  * Custom 404 Not Found page component with interactive animations.
  * 

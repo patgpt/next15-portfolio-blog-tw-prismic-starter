@@ -105,6 +105,16 @@ export default {
             'box-shadow': '0 0 40px rgba(168, 85, 247, 0.8)',
           },
         },
+        fadeInUp: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
       },
       animation: {
         glitchTop: 'glitchTop 1s infinite',
@@ -114,6 +124,7 @@ export default {
         'profile-pulse': 'profileGlow 2s ease-in-out infinite',
         'hover-glow': 'hoverGlow 0.5s ease-in-out forwards',
         'glow': 'glow 2s ease-in-out infinite',
+        'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
       },
       fontFamily: {
         'matrix': ['Consolas', 'Monaco', 'Andale Mono', 'monospace'],

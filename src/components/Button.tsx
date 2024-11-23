@@ -5,6 +5,7 @@ import { motion, HTMLMotionProps } from 'framer-motion';
 import { useRef } from 'react';
 import type { AriaButtonProps } from '@react-aria/button';
 import type { FocusRingProps } from '@react-aria/focus';
+import { cn } from '../utils/cn';
 
 interface ButtonProps {
     variant?: 'primary' | 'secondary' | 'gradient' | 'outline';
@@ -55,7 +56,7 @@ export function Button({
         <motion.a
             ref={ref}
             href={href}
-            className={`${baseStyles} ${variants[variant]} ${isFocusVisible ? 'ring-2 ring-offset-2' : ''}`}
+            className={cn(baseStyles, variants[variant], isFocusVisible ? 'ring-2 ring-offset-2' : '')}
             {...motionProps}
             {...(buttonProps as AriaButtonProps<'a'>)}
             {...(focusProps as FocusRingProps)}
